@@ -1,4 +1,4 @@
-Simple dashboard layout with Antd and using permission based navigation. 
+React dashboard layout solution created using Antd and permission based navigation. 
 
 Libraries used:
  * Ant Design

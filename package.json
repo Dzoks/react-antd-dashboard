@@ -1,6 +1,6 @@
 {
-  "name": "dashboard",
-  "version": "0.1.0",
+  "name": "react-dashboard-layout",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@ant-design/pro-layout": "^4.10.3",
