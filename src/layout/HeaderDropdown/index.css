@@ -1,0 +1,14 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  padding:2px 4px;
+  transition: all .3s;
+}
+
+.header-container:hover {
+  cursor: pointer;
+  background: rgba(0,0,0,.025);
+}
+

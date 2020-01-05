@@ -1,7 +1,10 @@
 import React from "react";
+
 import HeaderDropdown from '../HeaderDropdown';
 import {Layout} from "antd";
+import "./index.css";
 const BasicHeader = props => {
-  return <Layout.Header style={{ background: "#fff", padding: 4,margin:2,display:'flex',justifyContent:'space-between' }}><span>My Application</span><HeaderDropdown /></Layout.Header>;
+  const {user,menuItems}=props;
+  return <Layout.Header className="container"><span>{props.applicationName}</span><HeaderDropdown user={user} menuItems={menuItems} /></Layout.Header>;
 };
 export default BasicHeader;

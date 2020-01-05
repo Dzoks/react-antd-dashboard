@@ -1,76 +1,97 @@
+import React from "react";
+import "antd/dist/antd.css";
+import "./index.css";
+import { Layout } from "antd";
+import BasicHeader from "../BasicHeader";
+import SideMenu from "../SideMenu";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Page from "../../core/router/Page";
+const { Content, Footer } = Layout;
 
-import React from 'react';
-import 'antd/dist/antd.css';
-import './index.css';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-import BasicHeader from '../BasicHeader';
+function ForbiddenComponent(props) {
+  return <div>Acces denied.</div>;
+}
 
-const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
+function NotFoundComponent(props) {
+  return <div>Page not found.</div>;
+}
 
 class BasicLayout extends React.Component {
-  state = {
-    collapsed: false,
-  };
-
-  onCollapse = collapsed => {
-    console.log(collapsed);
-    this.setState({ collapsed });
+  showAvailableRoutes = () => {
+    const { menuItems } = this.props;
+    const routes = [];
+    const store = {};
+    menuItems.forEach(el => {
+      if (el.component) {
+        routes.push(el);
+        store[el.key] = el.rules || {};
+      } else if (el.subItems && el.subItems.length > 0)
+        el.subItems.forEach(sub => {
+          if (sub.component) {
+            routes.push(sub);
+            store[sub.key] = sub.rules || {};
+          }
+        });
+    });
+    let firstItem = true;
+    return routes.map(el => {
+      const path = [`/${el.key}`];
+      if (firstItem) {
+        firstItem = false;
+        path.push("/");
+      }
+      return (
+        <Page
+          key={el.key}
+          exact
+          component={el.component}
+          path={path}
+          id={el.key}
+          store={store}
+          redirectUrl={`/403`}
+          {...el.componentProps}
+        />
+      );
+    });
   };
 
   render() {
+    const {
+      logo,
+      dropdownItems,
+      applicationName,
+      menuItems,
+      user,
+      footerStyle,
+      footer,
+      notFound,
+      forbidden
+    } = this.props;
+    const forbiddenPage = forbidden || ForbiddenComponent;
+    const notFoundPage = notFound || NotFoundComponent;
     return (
-      <Layout style={{ minHeight: '100vh' }}>
-        <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
-          <div className="logo" />
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="1">
-              <Icon type="pie-chart" />
-              <span>Option 1</span>
-            </Menu.Item>
-            <Menu.Item key="2">
-              <Icon type="desktop" />
-              <span>Option 2</span>
-            </Menu.Item>
-            <SubMenu
-              key="sub1"
-              title={
-                <span>
-                  <Icon type="user" />
-                  <span>User</span>
-                </span>
-              }
-            >
-              <Menu.Item key="3">Tom</Menu.Item>
-              <Menu.Item key="4">Bill</Menu.Item>
-              <Menu.Item key="5">Alex</Menu.Item>
-            </SubMenu>
-            <SubMenu
-              key="sub2"
-              title={
-                <span>
-                  <Icon type="team" />
-                  <span>Team</span>
-                </span>
-              }
-            >
-              <Menu.Item key="6">Team 1</Menu.Item>
-              <Menu.Item key="8">Team 2</Menu.Item>
-            </SubMenu>
-            <Menu.Item key="9">
-              <Icon type="file" />
-              <span>File</span>
-            </Menu.Item>
-          </Menu>
-        </Sider>
-        <Layout>
-          <BasicHeader />
-          <Content style={{ margin: '0 16px' }}>
-           Hello World
-          </Content>
-          <Footer style={{ textAlign: 'center' }}>This is footer</Footer>
+      <BrowserRouter>
+        <Layout style={{ minHeight: "100vh" }}>
+          <SideMenu logo={logo} menuItems={menuItems} />
+          <Layout>
+            <BasicHeader
+              user={user}
+              applicationName={applicationName}
+              menuItems={dropdownItems}
+            />
+            <Content style={{ margin: "0 16px" }}>
+              <Switch>
+                <Route path="/403" exact component={forbiddenPage} />
+                {this.showAvailableRoutes()}
+                <Route component={notFoundPage} />
+              </Switch>
+            </Content>
+            <Footer style={footerStyle || { textAlign: "center" }}>
+              {footer}
+            </Footer>
+          </Layout>
         </Layout>
-      </Layout>
+      </BrowserRouter>
     );
   }
 }
