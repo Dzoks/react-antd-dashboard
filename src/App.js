@@ -6,12 +6,26 @@ import { ViewState } from './core/enum';
 import Translations from './pages/Translations';
 
 function App() {
+  const pages=[
+    {
+      key: 'home',
+      component: Home
+    },
+    {
+      key: 'languages',
+      component:Languages
+    },
+    {
+      key: 'translations',
+      component:Translations,
+      componentProps: { mainText: 'This is main text for component' }
+    }
+  ];
   const menuItems = [
     {
       key: 'home',
       value: 'Home',
       icon: 'home',
-      component: Home,
       rules: {}
     },
     {
@@ -23,7 +37,6 @@ function App() {
           key: 'languages',
           icon: 'insurance',
           value: 'Languages',
-          component: Languages,
           rules: {
             myButton: ViewState.DISABLED
           }
@@ -32,8 +45,6 @@ function App() {
           key: 'translations',
           icon: 'read',
           value: 'Translations',
-          component: Translations,
-          componentProps: { mainText: 'This is main text for component' }
         }
       ]
     }
@@ -52,6 +63,7 @@ function App() {
     <BasicLayout
       applicationName={applicationName}
       menuItems={menuItems}
+      pages={pages}
       dropdownItems={dropdownItems}
       user={user}
       //footerStyle={{ textAlign: 'center' }}
