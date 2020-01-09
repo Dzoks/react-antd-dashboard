@@ -8,3 +8,10 @@
      flex-wrap: wrap;
      align-items: center;
 }
+
+.right-side{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+}

@@ -1,0 +1,39 @@
+.login-form {
+  
+    border:1px solid #eee;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 0px #ddd;
+}
+.login-form-forgot {
+  float: right;
+}
+.login-form-button {
+  width: 100%;
+}
+
+.login-logo{
+  text-align: center;
+
+  position: relative;
+  left:20%;
+}
+
+.login-panel{
+  width: 300px;
+  position: absolute;
+    top:40%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.spinner{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -25px;
+    margin-left: -25px;
+    width: 50px;
+    height: 50px;
+}

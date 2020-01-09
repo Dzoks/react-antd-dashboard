@@ -51,7 +51,7 @@ class SideMenu extends React.Component {
   };
 
   render() {
-    const logo=this.props.logo||<div className='logo'/>;
+    const logo=this.props.logo||null;
     const path=this.props.location.pathname;
     const item = path!=="/"?path.substr(1):this.props.menuItems[0].key || null;
     return (

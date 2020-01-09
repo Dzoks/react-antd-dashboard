@@ -6,10 +6,11 @@ import BasicHeader from "../BasicHeader";
 import SideMenu from "../SideMenu";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Page from "../../core/router/Page";
+import Login from "../Login";
 const { Content, Footer } = Layout;
 
 function ForbiddenComponent(props) {
-  return <div>Acces denied.</div>;
+  return <div>Access denied.</div>;
 }
 
 function NotFoundComponent(props) {
@@ -60,6 +61,9 @@ class BasicLayout extends React.Component {
   };
 
   render() {
+    const authenticated=this.props.authenticated||false;
+    if (!authenticated)
+      return <Login onLogin={this.props.onLogin} logo={this.props.loginLogo} loginLogoStyle={this.props.loginLogoStyle} />;
     const {
       logo,
       dropdownItems,
@@ -76,13 +80,16 @@ class BasicLayout extends React.Component {
     return (
       <BrowserRouter>
         <Layout style={{ minHeight: "100vh" }}>
+          
           <SideMenu logo={logo} menuItems={menuItems} />
           <Layout>
             <BasicHeader
               user={user}
               applicationName={applicationName}
               menuItems={dropdownItems}
-            />
+            >
+            {this.props.headerComponents}
+            </BasicHeader>
             <Content style={{ margin: "0 16px" }}>
               <Switch>
                 <Route path="/403" exact component={forbiddenPage} />
