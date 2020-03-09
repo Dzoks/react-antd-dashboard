@@ -6,6 +6,7 @@ import { ViewState } from './core/enum';
 import Translations from './pages/Translations';
 import { message } from 'antd';
 import loginLogo from "./assets/logo.png";
+import Parameterized from './pages/Parameterized';
 const pages = [
   {
     key: 'home',
@@ -19,6 +20,11 @@ const pages = [
     key: 'translations',
     component: Translations,
     componentProps: { mainText: 'This is main text for component' }
+  },
+  {
+    key:'parameterized',
+    component:Parameterized,
+    hasParam:true
   }
 ];
 const menuItems = [
@@ -48,6 +54,12 @@ const menuItems = [
       }
     ]
   }
+];
+const customItems=[
+  {
+    key: 'parameterized',
+    rules: {},
+  },
 ];
 const applicationName = "Management App";
 class App extends React.Component {
@@ -99,6 +111,7 @@ class App extends React.Component {
         authenticated={authenticated}
         onLogin={this.onLogin}
         loginLogo={loginLogo}
+        customItems={customItems}
         //loginLogoStyle={{top:0,right:0}}
         //footerStyle={{ textAlign: 'center' }}
         //footer={<div>This is footer</div>}

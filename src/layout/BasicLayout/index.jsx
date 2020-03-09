@@ -19,7 +19,7 @@ function NotFoundComponent(props) {
 
 class BasicLayout extends React.Component {
   showAvailableRoutes = () => {
-    const { menuItems, pages } = this.props;
+    const { menuItems, pages,customItems } = this.props;
     const store = {};
     let firstItemKey = null;
     let firstItem = true;
@@ -40,11 +40,15 @@ class BasicLayout extends React.Component {
         store[el.key] = el.rules || {};
       }
     });
+    customItems.forEach(el=>{
+      store[el.key]=el.rules||{};
+    });
     return pages.map(el => {
-      const path = [`/${el.key}`];
+      const path = [`/${el.key}${el.hasParam?"/:param":""}`];
       if (firstItemKey === el.key) {
         path.push("/");
       }
+
       return (
         <Page
           key={el.key}
