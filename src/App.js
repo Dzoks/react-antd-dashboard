@@ -1,12 +1,15 @@
 import React from 'react';
 import BasicLayout from './layout/BasicLayout';
-import Home from './pages/Home';
-import Languages from './pages/Languages';
+
 import { ViewState } from './core/enum';
-import Translations from './pages/Translations';
 import { message } from 'antd';
 import loginLogo from "./assets/logo.png";
+import { HomeOutlined ,LogoutOutlined } from '@ant-design/icons';
+import Home from './pages/Home';
+import Languages from './pages/Languages';
+import Translations from './pages/Translations';
 import Parameterized from './pages/Parameterized';
+
 const pages = [
   {
     key: 'home',
@@ -31,17 +34,17 @@ const menuItems = [
   {
     key: 'home',
     value: 'Home',
-    icon: 'home',
+    icon: <HomeOutlined/>,
     rules: {}
   },
   {
     key: 'localization',
     value: 'Localization',
-    icon: 'zhihu',
+    icon: <HomeOutlined/>,
     subItems: [
       {
         key: 'languages',
-        icon: 'insurance',
+        icon: <HomeOutlined/>,
         value: 'Languages',
         rules: {
           myButton: ViewState.DISABLED
@@ -49,7 +52,7 @@ const menuItems = [
       },
       {
         key: 'translations',
-        icon: 'read',
+        icon: <HomeOutlined/>,
         value: 'Translations',
       }
     ]
@@ -83,7 +86,7 @@ class App extends React.Component {
           lastName: 'Turjacanin'
         },
         dropdownItems:[
-          { key: 'logout', icon: 'logout', value: 'Logout', callback: () => this.setState({authenticated:false}) }
+          { key: 'logout', icon: <LogoutOutlined/>, value: 'Logout', callback: () => this.setState({authenticated:false}) }
         ],
         authenticated:true
       });

@@ -1,4 +1,4 @@
-import { Dropdown, Menu, Icon,Avatar } from "antd";
+import { Dropdown, Menu, Avatar } from "antd";
 import React from "react";
 import './index.css';
 
@@ -14,7 +14,7 @@ const menuHeaderDropdown = menuItems=>{
         const {key,icon,value}=item;
         return (
             <Menu.Item key={key}>
-              <Icon type={icon} />
+              {icon}
               <span>{value}</span>
         </Menu.Item>);
       })}

@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-import { Menu, Layout, Icon } from "antd";
+import { Menu, Layout } from "antd";
 import { Link, withRouter } from "react-router-dom";
 const { SubMenu } = Menu;
 const { Sider } = Layout;
@@ -22,7 +22,7 @@ class SideMenu extends React.Component {
     const { key, icon, value } = item;
     return (
       <Menu.Item key={key}>
-        <Link to={`/${key}`}><Icon type={icon} /><span>{value}</span></Link>
+        <Link to={`/${key}`}>{icon} <span>{value}</span></Link>
       </Menu.Item>
     );
   };
@@ -38,7 +38,7 @@ class SideMenu extends React.Component {
             key={item.key}
             title={
               <span>
-                <Icon type={item.icon} />
+                {item.icon}
                 <span>{item.value}</span>
               </span>
             }

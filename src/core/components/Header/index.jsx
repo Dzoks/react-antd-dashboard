@@ -1,0 +1,15 @@
+import React from 'react';
+import "./index.css";
+import { Typography, Button } from 'antd';
+const Header=props=>{
+    const {title,items,buttons}=props;
+    return (<div className="basic-header">
+        <Typography.Title level={3}>{title}</Typography.Title>
+        <div className="basic-header-right-side">
+                {items}
+                {buttons&&buttons.map(b=><Button type={b.type} icon={b.icon} className={b.className} onClick={b.onClick}>{b.text}</Button> )}
+        </div>
+    </div>)
+}
+
+export default Header;

@@ -10,11 +10,11 @@ import Login from "../Login";
 const { Content, Footer } = Layout;
 
 function ForbiddenComponent(props) {
-  return <div>Access denied.</div>;
+  return <div>Stranica nije pronađena.</div>;
 }
 
 function NotFoundComponent(props) {
-  return <div>Page not found.</div>;
+  return <div>Stranica nije pronađena.</div>;
 }
 
 class BasicLayout extends React.Component {
