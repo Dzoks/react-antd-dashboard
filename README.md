@@ -1,9 +1,7 @@
-React dashboard layout solution created using Antd and permission based navigation. 
+React dashboard layout solution created using AntD and permission based navigation. Supports theming with Less, parameterized routes and private routing.
 
 Libraries used:
- * Ant Design
- * Ant Design Pro Layout
- * React Router DOM
+ * Ant Design v4
+ * React Router DOM v5
 
 Example of usage is shown in App.js file.
-

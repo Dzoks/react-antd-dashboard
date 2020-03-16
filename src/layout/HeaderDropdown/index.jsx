@@ -1,7 +1,7 @@
 import { Dropdown, Menu, Avatar } from "antd";
 import React from "react";
 import './index.css';
-
+import {UserOutlined} from '@ant-design/icons';
 const menuHeaderDropdown = menuItems=>{
   const onClick = ({ key }) => {
     const item=menuItems.find(i=>i.key===key);
@@ -33,11 +33,11 @@ const HeaderDropdown = props =>{
         {...props}
       >
         <div className='header-container' >
-          {avatar&&<Avatar
+          {avatar?<Avatar
             size="small"
             src={avatar}
-            alt="avatar"
-          />}
+            style={{marginRight:4}}
+          />:<Avatar size="small" style={{marginRight:4}} icon={<UserOutlined/>}/>}
           <span>{firstName} {lastName}</span>
         </div>
       </Dropdown>
