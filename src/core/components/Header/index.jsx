@@ -7,7 +7,7 @@ const Header=props=>{
         <Typography.Title level={3}>{title}</Typography.Title>
         <div className="basic-header-right-side">
                 {items}
-                {buttons&&buttons.map(b=><Button type={b.type} icon={b.icon} className={b.className} onClick={b.onClick}>{b.text}</Button> )}
+                {buttons&&buttons.map(({text,...rest})=><Button {...rest}>{text}</Button> )}
         </div>
     </div>)
 }
