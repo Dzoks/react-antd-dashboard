@@ -4,7 +4,7 @@ import BasicLayout from './layout/BasicLayout';
 import { ViewState } from './core/enum';
 import { message } from 'antd';
 import loginLogo from "./assets/logo.png";
-import { HomeOutlined ,LogoutOutlined } from '@ant-design/icons';
+import { HomeOutlined ,LogoutOutlined, InsuranceOutlined,ReadOutlined,ZhihuOutlined } from '@ant-design/icons';
 import Home from './pages/Home';
 import Languages from './pages/Languages';
 import Translations from './pages/Translations';
@@ -40,11 +40,11 @@ const menuItems = [
   {
     key: 'localization',
     value: 'Localization',
-    icon: <HomeOutlined/>,
+    icon: <ZhihuOutlined/>,
     subItems: [
       {
         key: 'languages',
-        icon: <HomeOutlined/>,
+        icon: <InsuranceOutlined/>,
         value: 'Languages',
         rules: {
           myButton: ViewState.DISABLED
@@ -52,7 +52,7 @@ const menuItems = [
       },
       {
         key: 'translations',
-        icon: <HomeOutlined/>,
+        icon: <ReadOutlined/>,
         value: 'Translations',
       }
     ]

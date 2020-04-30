@@ -6,8 +6,11 @@ Libraries used:
  * React Router DOM v5
 
 Useful components:
+
 Header - Component for displaying headers, with title on left and other components (native support for buttons via separate buttons prop) on right.
+
 TooltipButton - Simple component for displaying small circle buttons with tooltip text.
+
 Datatable - Custom version of Antd Table with premade sorters for numbers and strings, and filters for strings, numbers (supports comparison operators >,<,>=,<=), selection and multiple selection. More features (date sorting and filtering, server side pagination, easy actions) coming soon.
 
 Example of usage is shown in App.js file.

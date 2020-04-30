@@ -1,0 +1,25 @@
+
+  .generic-table .ant-table-filter-trigger-container{
+    display: none;
+  }
+
+  .generic-table .ant-table-filter-column-title{
+    padding:16px;
+  }
+
+  .generic-table .ant-table-column-sorters,
+  .generic-table-filter-select,
+  .generic-table-filter-multiselect,
+  .generic-table-filter-select .ant-select-selection-item,
+  .generic-table .ant-table-column-sorters span:first-of-type{
+    width:100%;
+  }
+
+
+  .generic-table-filter-multiselect .ant-select-selection-item{
+    width:auto !important;
+  }
+
+  /* .generic-table-filter-select svg{
+    float: right;
+  } */
