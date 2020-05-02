@@ -26,48 +26,6 @@
     width: 100%;
   }
 
-  .datatable {
-    height: 100%;
-    width: 100%;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column
-  }
-  .datatable .ant-table-body{
-    overflow: hidden;
-  }
-  
-  .datatable .ant-table-content thead th{
-    position:sticky !important;
-    top:0 !important;
-    z-index: 1;
-  }
-  
-  .datatable .ant-table-pagination.ant-pagination{
-    position: sticky;
-    bottom: 0;
-    z-index: 1;
-    width: 100%;
-    border-top: 1px solid #f0f0f0;
-    background-color: #fafafa;
-    margin: 0;
-    padding: 4px 0;
-  }
-  
-  .datatable .ant-spin-container{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-  
-  .datatable .ant-table{
-    flex-grow: 1;
-  }
-  
-  .datatable .ant-spin-nested-loading{
-    height:100%;
-  }
-  
-  .datatable table tr,.main-table td.ant-table-column-sort{
-    background: transparent;
+  .result-item{
+    justify-content: center;
   }

@@ -1,12 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+export {default as Datatable} from './core/components/Datatable';
+export {default as BasicLayout} from './layout/BasicLayout';
+export {default as PrivateRoute} from './core/router/PrivateRoute';
+export {default as Page} from './core/router/Page';
+export {default as View} from './core/components/View';
+export {default as TooltipButton} from './core/components/TooltipButton';
+export {default as Header} from './core/components/Header';
+export {default as withModal} from './core/components/withModal';
+export {ViewState} from './core/enum/index';

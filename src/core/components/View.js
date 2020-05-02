@@ -6,13 +6,14 @@ function View(props) {
     let hidden=false,disabled=false;
     if (page && id){
         const state=store[page][id];
-        // eslint-disable-next-line default-case
         switch (state) {
             case ViewState.DISABLED:
                 disabled=true;
                 break;
             case ViewState.HIDDEN:
                 hidden=true;
+                break;
+            default:
         }
     }
     return (

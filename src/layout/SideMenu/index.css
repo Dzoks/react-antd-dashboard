@@ -1,0 +1,8 @@
+.side-menu-logo {
+    display: block;
+    margin: 0 auto;
+}
+
+.ant-menu-submenu.ant-menu-submenu-inline,
+.ant-menu-submenu.ant-menu-submenu-vertical{
+  padding: 0;}
