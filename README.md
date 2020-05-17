@@ -3,7 +3,7 @@ Contains useful components for dashboard application.
 
 ## Required libraries:
  * React v16.13.1 or newer
- * Ant Design v4.2.0 or newer
+ * Ant Design v4.2.3 or newer
  * React Router DOM v5.1.2 or newer (if using BasicLayout component)
 
 
@@ -17,6 +17,9 @@ Header - Component for displaying headers, with title on left and other componen
 TooltipButton - Simple component for displaying small circle buttons with tooltip text.
 
 Datatable - Custom version of Antd Table with premade sorters for numbers and strings, and filters for strings, numbers (supports comparison operators >,<,>=,<=), selection and multiple selection. More features (date sorting and filtering, server side pagination, easy actions) coming soon.
+
+withModal HOC - HOC for wrapping Antd Modal component with properties needed for controlling
+visibility of modal. Offers showDialog/closeDialog methods with possibility to pass data through method parameter.
 
 ## Installation
 

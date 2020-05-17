@@ -4,7 +4,7 @@
   }
 
   .generic-table .ant-table-filter-column-title{
-    padding:16px;
+    padding:0px !important;
   }
 
   .datatable {
@@ -52,6 +52,10 @@
   
   .datatable table tr,.main-table td.ant-table-column-sort{
     background: transparent;
+  }
+
+  .generic-table .ant-table-filter-column-title{
+    padding:0;
   }
 
   .generic-table .ant-table-column-sorters,

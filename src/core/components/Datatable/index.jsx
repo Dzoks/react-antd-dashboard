@@ -171,6 +171,7 @@ class Datatable extends React.Component{
         return {
             dataIndex,
             title,
+            showSorterTooltip:false,
             ...(sort?this.getSortingProps(dataIndex,sort):{}),
             ...(filter?this.getFilteringProps(dataIndex,filter,title,filterOptions):{}),
             ...optionsConfig,
