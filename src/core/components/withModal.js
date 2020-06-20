@@ -48,7 +48,7 @@ const withModal = defaultModalData => Component =>{
                     });
                 }
             };
-            return <Component {...this.props} {...modalProps} modalData={modalData} />
+            return <Component {...this.props} modalProps={modalProps} modalData={modalData} />
         }
     }
     return HOC;
