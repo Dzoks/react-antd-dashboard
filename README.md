@@ -27,3 +27,6 @@ visibility of modal. Offers showDialog/closeDialog methods with possibility to p
 npm install react-antd-dashboard
 ```
 
+## Demo application
+
+You can see demo application with examples [here](https://github.com/Dzoks/react-antd-dashboard-demo)
