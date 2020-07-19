@@ -6,20 +6,21 @@ const withModal = defaultModalData => Component =>{
         constructor(props){
             super(props);
             this.state={
-                modalData:defaultModalData,
+                modalData:defaultModalData||null,
                 visible:false
             };
         }
 
         showDialog = modalData =>{
-            if (modalData){
+            if (modalData && modalData != undefined){
                 this.setState({
                     visible:true,
                     modalData
                 })
             }else{
                 this.setState({
-                    visible:true
+                    visible:true,
+                    modalData:defaultModalData||null
                 });
             }
         }
@@ -28,7 +29,7 @@ const withModal = defaultModalData => Component =>{
             return new Promise((resolve)=>{
                 this.setState({
                     visible:false,
-                    modalData:defaultModalData
+                    modalData:defaultModalData||null
                 },()=>{
                     return resolve();
                 })
@@ -48,7 +49,7 @@ const withModal = defaultModalData => Component =>{
                     });
                 }
             };
-            return <Component {...this.props} modalProps={modalProps} modalData={modalData} />
+            return <Component {...this.props} closeDialog={this.closeDialog} showDialog={this.showDialog} modalProps={modalProps} modalData={modalData} />
         }
     }
     return HOC;

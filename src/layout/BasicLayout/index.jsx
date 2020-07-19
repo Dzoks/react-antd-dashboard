@@ -1,18 +1,18 @@
 import React from "react";
 import "antd/dist/antd.css";
 import "./index.css";
-import { Layout,Result } from "antd";
+import { Layout, Result, Spin } from "antd";
 import BasicHeader from "../BasicHeader";
 import SideMenu from "../SideMenu";
 import Page from "../../core/router/Page";
 import Login from "../Login";
 const { Content, Footer } = Layout;
-let dom={};
-try{
-  dom=require('react-router-dom');
-}catch(e){
+let dom = {};
+try {
+  dom = require('react-router-dom');
+} catch (e) {
 }
-const { BrowserRouter, Route, Switch }=dom;
+const { BrowserRouter, Route, Switch } = dom;
 
 function ForbiddenComponent(props) {
   return (<div className="page-container result-item" >
@@ -33,7 +33,7 @@ function NotFoundComponent(props) {
 }
 class BasicLayout extends React.Component {
   showAvailableRoutes = () => {
-    const { menuItems, pages,otherItems } = this.props;
+    const { menuItems, pages, otherItems } = this.props;
     const store = {};
     let firstItemKey = null;
     let firstItem = true;
@@ -56,15 +56,15 @@ class BasicLayout extends React.Component {
         }
       });
     if (otherItems)
-      otherItems.forEach(el=>{
+      otherItems.forEach(el => {
         if (firstItem) {
           firstItem = false;
           firstItemKey = el.key;
         }
-        store[el.key]=el.rules||{};
+        store[el.key] = el.rules || {};
       });
     return pages.map(el => {
-      const path = [`/${el.key}${el.hasParam?"/:param":""}`];
+      const path = [`/${el.key}${el.hasParam ? "/:param" : ""}`];
       if (firstItemKey === el.key) {
         path.push("/");
       }
@@ -85,10 +85,14 @@ class BasicLayout extends React.Component {
   };
 
   render() {
-    const authenticated=this.props.authenticated||false;
-    const CustomLoginComponent=this.props.loginPage;
+    if (this.props.loading) {
+      const customSpinnerPage = this.props.loadingPage || <div className="basic-layout-spinner-container" ><Spin className="basic-layout-spinner" /></div>;
+      return customSpinnerPage;
+    }
+    const authenticated = this.props.authenticated || false;
+    const CustomLoginComponent = this.props.loginPage;
     if (!authenticated)
-      return CustomLoginComponent?<CustomLoginComponent onLogin={this.props.onLogin} logo={this.props.loginLogo} loginLogoStyle={this.props.loginLogoStyle} />:<Login onLogin={this.props.onLogin} logo={this.props.loginLogo} loginLogoStyle={this.props.loginLogoStyle} />;
+      return CustomLoginComponent ? <CustomLoginComponent onLogin={this.props.onLogin} logo={this.props.loginLogo} loginLogoStyle={this.props.loginLogoStyle} /> : <Login onLogin={this.props.onLogin} logo={this.props.loginLogo} loginLogoStyle={this.props.loginLogoStyle} />;
     const {
       logo,
       dropdownItems,
@@ -106,14 +110,14 @@ class BasicLayout extends React.Component {
     return (
       <BrowserRouter>
         <Layout style={{ minHeight: "100vh" }}>
-          {menuItems&&<SideMenu logo={logo} expandedLogo={expandedLogo} menuItems={menuItems} />}
+          {menuItems && <SideMenu logo={logo} expandedLogo={expandedLogo} menuItems={menuItems} />}
           <Layout>
             <BasicHeader
               user={user}
               applicationName={applicationName}
               menuItems={dropdownItems}
             >
-            {this.props.headerComponents}
+              {this.props.headerComponents}
             </BasicHeader>
             <Content style={{ margin: "0 16px" }}>
               <Switch>
@@ -133,10 +137,10 @@ class BasicLayout extends React.Component {
 }
 
 let whatToExport;
-if (dom.Route){
-  whatToExport=BasicLayout
-}else{
-  whatToExport=props=><div>No React Router</div>;
+if (dom.Route) {
+  whatToExport = BasicLayout
+} else {
+  whatToExport = props => <div>No React Router</div>;
 }
 
 export default whatToExport;

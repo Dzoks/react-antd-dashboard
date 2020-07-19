@@ -21,6 +21,8 @@ Datatable - Custom version of Antd Table with premade sorters for numbers and st
 withModal HOC - HOC for wrapping Antd Modal component with properties needed for controlling
 visibility of modal. Offers showDialog/closeDialog methods with possibility to pass data through method parameter.
 
+FormModal - Modal component created using withModal HOC. Offers showDialog/closeDialog. Offers automatic form validation. Form items are supplied to component as children.
+
 ## Installation
 
 ```

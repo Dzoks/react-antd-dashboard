@@ -8,6 +8,7 @@ const Header=props=>{
         <div className="basic-header-right-side">
                 {items}
                 {buttons&&buttons.map(({text,...rest})=><Button {...rest}>{text}</Button> )}
+                {props.children}
         </div>
     </div>)
 }

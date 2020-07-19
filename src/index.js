@@ -6,4 +6,6 @@ export {default as View} from './core/components/View';
 export {default as TooltipButton} from './core/components/TooltipButton';
 export {default as Header} from './core/components/Header';
 export {default as withModal} from './core/components/withModal';
-export {ViewState} from './core/enum/index';
+export {default as FormModal} from './core/components/FormModal';
+
+export {ViewState} from './core/components/View';
